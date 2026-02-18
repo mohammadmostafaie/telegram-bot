@@ -155,8 +155,12 @@ def webhook():
 def home():
     return "Bot is running!"
 
+import asyncio
 
 if __name__ == "__main__":
-    application.initialize()
-    application.start()
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(application.initialize())
+    loop.run_until_complete(application.start())
     app.run(host="0.0.0.0", port=10000)
+
+
